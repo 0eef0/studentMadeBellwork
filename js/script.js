@@ -9,8 +9,8 @@ const secondHand = document.getElementById('secondHand');
 
 const currTime = new Date();
 hourDOM.innerHTML = (currTime.getHours() > 12) ? currTime.getHours()-12 : currTime.getHours();
-minuteDOM.innerHTML = currTime.getMinutes();
-secondDOM.innerHTML = currTime.getSeconds();
+minuteDOM.innerHTML = (currTime.getMinutes() < 10) ? `0${currTime.getMinutes()}` : currTime.getMinutes();
+secondDOM.innerHTML = (currTime.getSeconds() < 10) ? `0${currTime.getSeconds()}` : currTime.getSeconds();
 morningDOM.innerHTML = (currTime.getHours() > 12) ? 'pm' : 'am';
 secondHand.style.transform = `rotate(${currTime.getSeconds() * 6}deg)`;
 minuteHand.style.transform = `rotate(${currTime.getMinutes() * 6}deg)`;
